@@ -1,32 +1,6 @@
-# Project Template
+# Introduction
 
-In this file, we give you some general guideline and advices for the project. You need two components:
-
-1. Python 3.6
-1. gurobi
-
-## Python
-
-Linux users should have python already installed in their PC. For the other users I strongly recomment to install **Anaconda** and to use its terminal for installing new packages. You can find details [here](https://www.anaconda.com/distribution/) and [there](https://www.anaconda.com/distribution/#download-section). 
-
-
-## gurobi
-gurobi is a commercial software. See [here](https://www.gurobi.com/)
-
-
-## Python packages:
-Probably you will need to install several packages (e.g., pulp, numpy, etc). In linux my suggestion is to use pip
-~~~
-pip3 install <package name>
-~~~
-e.g., 
-~~~
-pip3 install pulp
-~~~
-For windows is suggest to use conda.
-~~~
-conda install -c conda-forge pulp 
-~~~
+​	This project is about "Optimal stochastic procurement" for the Operational research course in Poltecnico di Torino
 
 
 ## Run the code:
@@ -34,22 +8,35 @@ Run the code by writing in the terminal
 ```
 python3 main.py
 ```
-and enjoy...
-
-
-## Text Editor
-
-In order write good code you need a good editor. The best one that I recommend are:
-
-1. [Visual Studio Code](https://code.visualstudio.com/) free;
-1. [Sublime Text](https://www.sublimetext.com/) free for non commercial usage;
-1. [PyCharm](https://www.jetbrains.com/pycharm/) free for students.
-
 ## Project
 
-In the project we consider the following simple problem:
+In the project we want to solve the following problem with the constraints:
+
+The Capacitated Supplier Selection Problem with Total Quantity Discount Policy and Activation Costs (CTQD_AC) and under uncertainty ($CTQD\_AC_u$)
+
+
+
+There are two approch :
+
+​											1- only product price stochastic ($CTQD\_AC_{up}$)
+
+​											2- only product demand is stochastic ($CTQD\_AC_{ud}$)
+
+
+
+M : Set of suppliers index by i - it was defined in code by "num_Suppliers" = [5, 10, 15]
+
+K : Set of products index by k - it was defined in code by "num_products" = [10, 20, 30]
+
+$F_{ik}$ : Basic price of product " i " of supplier " k " - It was defined in code by " B_price_low = 10 and B_price_high = 200"
+
+$\lambda$ : It was defined in code by " lambda " = [0.1, 0.8]
+
+
+
+we consider the following problem:
 $$
-\max \sum_{i \in \mathcal{I}} c_i x_i + \sum_{s\in \mathcal{S}} p_s \big[\sum_{i \in I} q_i^s y_i^s \big]
+\min \sum_{i \in \mathcal{M}} a_i x_i + \sum_{\in \mathcal{S}} p_s \big[\sum_{k \in K} \sum_{i \in M_k}\sum_{r \in R_i}(1-\delta_{ir})f_{ik}(z_{ikr}+z^+_{ikrs}=z^-_{ikrs})+\sum_{k \in K}F_kw_{ks} \big]
 $$
 subject to:
 $$

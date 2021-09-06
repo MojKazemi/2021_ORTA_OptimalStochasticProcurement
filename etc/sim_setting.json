@@ -2,7 +2,7 @@
 	"knapsack_size": 50,
 	"num_Suppliers": [5, 10, 20],
 	"num_products": [10, 20, 30],
-	"landa": [0.1, 0.8],
+	"lambda": [0.1, 0.8],
 	"B_price_low": 10,
 	"B_price_high": 200,
 	"low_size": 1,
