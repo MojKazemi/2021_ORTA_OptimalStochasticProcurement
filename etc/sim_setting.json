@@ -5,6 +5,8 @@
 	"lambda": 0.1,
 	"b_price_low": 10,
 	"b_price_high": 200,
+	"av_quantity_l": 1,
+	"av_quantity_h": 15,
 	"low_size": 1,
 	"high_size": 10,
 	"n_items": 10,
