@@ -9,18 +9,21 @@ class Instance():
         self.max_size = sim_setting['knapsack_size']
 
         # set of supplier: M index by i
-        self.supplier = np.around(np.random.uniform(
-            sim_setting['low_size'],
-            sim_setting['high_size'],
-            sim_setting['n_items']
-        ))
+        self.suppliers = sim_setting['num_suplliers']
 
         # set of products: K index by k
-        self.products = np.around(np.random.uniform(
-            sim_setting['low_profit'],
-            sim_setting['high_profit'],
-            sim_setting['n_items']
-        ), 2)
+        self.products = sim_setting['num_products']
+
+        # set of lambda
+        self._lambda = sim_setting['lambda']
+
+        # set of basic price for each products
+        self.b_price = np.around(np.random.uniform(
+            sim_setting['b_price_low'],
+            sim_setting['b_price_high'],
+            sim_setting['num_products']
+        ),2)
+
         self.n_items = sim_setting['n_items']
 
         self.sizes_ss = np.around(np.random.uniform(
